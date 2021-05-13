@@ -1,0 +1,12 @@
+#csvTitle{
+    font-size: calc(20px + 2vmin);
+    color: #e40e7d;
+    grid-column-start: 1;
+    margin-top: 10vh;
+    margin-right: 6vw;
+  }
+
+  #numbers{
+    display: grid; 
+    place-items: center;
+  }

@@ -1,0 +1,12 @@
+#uploadButton{
+    font-size: calc(20px + 2vmin);
+    color: #e40e7d;;
+    border-radius: 20%;
+    margin-top: 10vh;
+    margin-right: 10vw;
+    background-color: white;;
+}
+
+#uploadContainer{
+    grid-column-start: 5;
+}
