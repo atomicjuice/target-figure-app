@@ -1,8 +1,8 @@
-To get the app up and running is a simple npm install & npm start
+To get the app up and running is a simple npm install & npm start command in the terminal 
 
-### `npm install`
 
-### `npm start`
+
+
 
 
 ### `how the app appears on startup`
