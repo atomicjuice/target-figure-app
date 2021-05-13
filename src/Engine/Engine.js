@@ -26,7 +26,7 @@ const STRATEGY_FAST = 1;
 const STRATEGY_ALL_SOLUTIONS = 2;
 
 /* SolverResults object, passed to the user's finishedCallback function. */
-class SolverResults {
+export class SolverResults {
     constructor(selection, target, nearestExpressions, otherExpressions, errorMessage) {
         this.selection = selection.slice();
         this.target = target;
@@ -81,7 +81,7 @@ class SolverResults {
 
 /* SolverProgress object, passed to the user's progressCallback function if it
  * was defined. */
-class SolverProgress {
+export class SolverProgress {
     constructor(selection, target, msElapsed, numExpressions, bestTotalSoFar, numBestSolutions, bestSolution=null) {
         this.selection = selection.slice();
         this.target = target;
@@ -842,6 +842,7 @@ class OrderedExpression extends Expression {
  * do something else, then dive back into it. */
 class SolverState {
     constructor(progressCallback, finishedCallback, strategy) {
+        // debugger
         this.startTime = Date.now();
         this.selection = null;
         this.target = null;
@@ -1587,6 +1588,7 @@ class SolverState {
 
     logProblemFinished() {
         let timeMs = Date.now() - this.startTime;
+        localStorage.setItem('equation', JSON.stringify(this.nearestExp.stringValue))
         console.log(this.nearestExp.stringValue, this.selectionString +
                 (this.target == null ? "" : (" -> " + this.target.toString() +
                 " (min " + this.minNumbersUsed.toString() + ", max " +
@@ -1696,7 +1698,7 @@ function solverRunAux(selection, target, progressCallback, finishedCallback,
             lockedNumbers);
 }
 
-function solverRun(selection, target, progressCallback, finishedCallback,
+export function solverRun(selection, target, progressCallback, finishedCallback,
         maxNumbersUsed=null) {
     solverRunAux(selection, target, progressCallback, finishedCallback,
             STRATEGY_FAST_CUT, null, null, null, maxNumbersUsed, []);
